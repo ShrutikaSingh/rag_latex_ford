@@ -61,7 +61,7 @@ def main():
         )
 
         if uploaded_files:
-            if st.button("Process Documents"):
+            if st.button("Process Document"):
                 with st.spinner("Processing documents..."):
                     rag_pipeline.process_documents(uploaded_files)
                 st.success("Documents processed successfully!")

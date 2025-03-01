@@ -9,11 +9,33 @@ import utils.helpers as func
 import utils.ollama as ollama
 import utils.llama_index as llama_index
 import utils.logs as logs
+from utils.math_processor import MathProcessor
 
+def process_math_content(documents):
+    """Process documents to extract and index mathematical content."""
+    math_enhanced_docs = []
+    for doc in documents:
+        # Extract LaTeX expressions from the document
+        formulas = MathProcessor.extract_latex(doc.text)
+        
+        # Add math metadata to document
+        if formulas:
+            doc.metadata['math_content'] = {
+                'formulas': formulas,
+                'has_math': True
+            }
+        else:
+            doc.metadata['math_content'] = {
+                'has_math': False
+            }
+        
+        math_enhanced_docs.append(doc)
+    
+    return math_enhanced_docs
 
 def rag_pipeline(uploaded_files: list = None):
     """
-    RAG pipeline for Llama-based chatbots.
+    RAG pipeline for Llama-based chatbots with enhanced math processing capabilities.
 
     Parameters:
         - uploaded_files (list, optional): List of files to be processed.
@@ -103,10 +125,9 @@ def rag_pipeline(uploaded_files: list = None):
         st.stop()
 
     #######################################
-    # Load files from the data/ directory #
+    # Load and Process Math Content       #
     #######################################
 
-    # if documents already exists in state
     if (
         st.session_state["documents"] is not None
         and len(st.session_state["documents"]) > 0
@@ -117,6 +138,12 @@ def rag_pipeline(uploaded_files: list = None):
         try:
             save_dir = os.getcwd() + "/data"
             documents = llama_index.load_documents(save_dir)
+            
+            # Process documents for mathematical content
+            with st.spinner("Processing mathematical content..."):
+                documents = process_math_content(documents)
+                st.caption("✔️ Math Content Processed")
+            
             st.session_state["documents"] = documents
             st.caption("✔️ Data Processed")
         except Exception as err:

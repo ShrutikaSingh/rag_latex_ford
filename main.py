@@ -1,34 +1,79 @@
-import time
-
 import streamlit as st
+import os
+from pathlib import Path
 
-from components.chatbox import chatbox
-from components.header import set_page_header
-from components.sidebar import sidebar
+from utils.math_processor import MathProcessor
+from utils.symbolic_processor import SymbolicProcessor
+from utils.rag_pipeline import RagPipeline
+from components.ui_components import MathUI
 
-from components.page_config import set_page_config
-from components.page_state import set_initial_state
+def setup_environment():
+    """Initialize the application environment"""
+    Path("data").mkdir(exist_ok=True)
+    Path("uploads").mkdir(exist_ok=True)
+    
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    if "documents" not in st.session_state:
+        st.session_state.documents = []
+    if "math_mode" not in st.session_state:
+        st.session_state.math_mode = True
 
+def main():
+    st.set_page_config(
+        page_title="Math-Enhanced Local RAG",
+        page_icon="📐",
+        layout="wide"
+    )
 
-def generate_welcome_message(msg):
-    for char in msg:
-        time.sleep(0.025)  # TODO: Find a better way -- This is blocking :(
-        yield char
+    setup_environment()
 
+    st.title("Math-Enhanced Local RAG System")
+    st.sidebar.title("Configuration")
 
-### Setup Initial State
-set_initial_state()
+    # Initialize components
+    math_processor = MathProcessor()
+    symbolic_processor = SymbolicProcessor()
+    rag_pipeline = RagPipeline(math_processor, symbolic_processor)
+    ui = MathUI(rag_pipeline)
 
-### Page Setup
-set_page_config()
-set_page_header()
+    # Sidebar controls
+    with st.sidebar:
+        st.header("Settings")
+        model_name = st.selectbox(
+            "Select Model",
+            ["llama2:7b", "llama2:13b", "mistral:7b"],
+            index=0
+        )
+        
+        top_k = st.slider(
+            "Number of relevant chunks (top-k)",
+            min_value=1,
+            max_value=10,
+            value=3
+        )
 
-for msg in st.session_state["messages"]:
-    st.chat_message(msg["role"]).write(msg["content"])
-    # st.chat_message(msg["role"]).write_stream(generate_welcome_message(msg['content']))
+        st.header("Document Upload")
+        uploaded_files = st.file_uploader(
+            "Upload mathematical documents",
+            accept_multiple_files=True,
+            type=["pdf", "txt", "tex"]
+        )
 
-### Sidebar
-sidebar()
+        if uploaded_files:
+            if st.button("Process Documents"):
+                with st.spinner("Processing documents..."):
+                    rag_pipeline.process_documents(uploaded_files)
+                st.success("Documents processed successfully!")
 
-### Chat Box
-chatbox()
+    # Main chat interface
+    ui.render_chat_interface()
+
+    # Footer
+    st.markdown("---")
+    st.markdown(
+        "Math-Enhanced Local RAG System - Powered by LlamaIndex and Ollama"
+    )
+
+if __name__ == "__main__":
+    main()

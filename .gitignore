@@ -4,3 +4,11 @@ data/*
 .cache/*
 .nv/*
 .DS_Store
+myenv/
+
+models/
+test_files/
+uploads/
+data/
+
+old/

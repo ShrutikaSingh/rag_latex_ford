@@ -6,6 +6,7 @@ from utils.ollama import get_models
 
 
 def set_initial_state():
+    """Set the initial state of the application."""
 
     ###########
     # General #
@@ -24,27 +25,29 @@ def set_initial_state():
         try:
             models = get_models()
             st.session_state["ollama_models"] = models
-        except Exception:
+        except Exception as e:
+            logs.log.error(f"Error getting models: {e}")
             st.session_state["ollama_models"] = []
-            pass
 
     if "selected_model" not in st.session_state:
-        try:
-            if "llama3:8b" in st.session_state["ollama_models"]:
-                st.session_state["selected_model"] = (
-                    "llama3:8b"  # Default to llama3:8b on initial load
-                )
-            elif "llama2:7b" in st.session_state["ollama_models"]:
-                st.session_state["selected_model"] = (
-                    "llama2:7b"  # Default to llama2:7b on initial load
-                )
-            else:
-                st.session_state["selected_model"] = st.session_state["ollama_models"][
-                    0
-                ]  # If llama2:7b is not present, select the first model available
-        except Exception:
-            st.session_state["selected_model"] = None
-            pass
+        models = st.session_state.get("ollama_models", [])
+        # Try to select models in order of preference
+        preferred_models = ["llama3:8b", "llama2:7b", "mistral:7b"]
+        selected = None
+        
+        for model in preferred_models:
+            if model in models:
+                selected = model
+                break
+        
+        if not selected and models:  # If no preferred model found but we have models
+            selected = models[0]
+            
+        st.session_state["selected_model"] = selected
+        if selected:
+            logs.log.info(f"Selected model: {selected}")
+        else:
+            logs.log.warning("No models available for selection")
 
     if "messages" not in st.session_state:
         st.session_state["messages"] = [
@@ -91,7 +94,7 @@ def set_initial_state():
         st.session_state["advanced"] = False
 
     if "system_prompt" not in st.session_state:
-        st.session_state["system_prompt"] = """You are a knowledgeable mathematics assistant. Your primary role is to help users understand mathematical concepts, solve problems, and work through mathematical proofs and derivations.
+        st.session_state["system_prompt"] = r"""You are a knowledgeable mathematics assistant. Your primary role is to help users understand mathematical concepts, solve problems, and work through mathematical proofs and derivations.
 
         Key responsibilities:
         1. Interpret and explain mathematical concepts clearly and precisely

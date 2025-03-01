@@ -1,31 +1,33 @@
 import streamlit as st
+from utils.math_processor import MathProcessor
+import utils.llama_index as llama_index
 
-from utils.ollama import chat, context_chat
+def format_message(message):
+    """Format message with proper math rendering."""
+    return MathProcessor.format_math_response(message)
 
+def process_query(query):
+    """Process query with math-aware handling."""
+    # Preprocess the query for mathematical content
+    processed_query = MathProcessor.preprocess_math_query(query)
+    
+    # Get response from query engine
+    response = llama_index.query_engine.query(processed_query['original_query'])
+    
+    # Format the response for proper math rendering
+    formatted_response = format_message(str(response))
+    
+    return formatted_response
 
 def chatbox():
-    if prompt := st.chat_input("How can I help?"):
-        # Prevent submission if Ollama endpoint is not set
-        if not st.session_state["query_engine"]:
-            st.warning("Please confirm settings and upload files before proceeding.")
-            st.stop()
+    if "messages" not in st.session_state:
+        st.session_state["messages"] = []
 
-        # Add the user input to messages state
-        st.session_state["messages"].append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.markdown(prompt)
+    if prompt := st.chat_input("How can I help you?"):
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        st.chat_message("user").write(prompt)
 
-        # Generate llama-index stream with user input
-        with st.chat_message("assistant"):
-            with st.spinner("Processing..."):
-                response = st.write_stream(
-                    # chat(
-                    #     prompt=prompt
-                    # )
-                    context_chat(
-                        prompt=prompt, query_engine=st.session_state["query_engine"]
-                    )
-                )
-
-        # Add the final response to messages state
-        st.session_state["messages"].append({"role": "assistant", "content": response})
+        response = process_query(prompt)
+        
+        st.session_state.messages.append({"role": "assistant", "content": response})
+        st.chat_message("assistant").write(response)

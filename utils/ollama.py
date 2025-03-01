@@ -62,34 +62,28 @@ def get_models():
         - Exception: If there is an error retrieving the list of models.
 
     Notes:
-        This function retrieves a list of available language models from the Ollama server using the `ollama` library.
-        It takes no parameters and returns a list of available language model names.
+        This function retrieves a list of available language models from the Ollama server using the `ollama` library. It takes no parameters and returns a list of available language model names.
+
+        The function raises an exception if there is an error retrieving the list of models.
+
+    Side Effects:
+        - st.session_state["ollama_models"] is set to the list of available language models.
     """
     try:
         chat_client = create_client(st.session_state["ollama_endpoint"])
-        if not chat_client:
-            return []
-            
-        response = chat_client.list()
+        data = chat_client.list()
         models = []
-        
-        # Handle the response format from newer Ollama versions
-        if isinstance(response, dict) and "models" in response:
-            for model in response["models"]:
-                if isinstance(model, dict) and "name" in model:
-                    models.append(model["name"])
-        # Handle the response format from older Ollama versions
-        elif isinstance(response, list):
-            for model in response:
-                if isinstance(model, dict) and "name" in model:
-                    models.append(model["name"])
+        for model in data["models"]:
+            models.append(model["name"])
 
         st.session_state["ollama_models"] = models
 
         if len(models) > 0:
-            logs.log.info(f"Ollama models loaded successfully: {models}")
+            logs.log.info("Ollama models loaded successfully")
         else:
-            logs.log.warning("Ollama did not return any models. Make sure to download some!")
+            logs.log.warn(
+                "Ollama did not return any models. Make sure to download some!"
+            )
 
         return models
     except Exception as err:

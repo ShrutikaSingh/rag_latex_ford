@@ -11,45 +11,26 @@ def settings():
     st.header("Settings")
     st.caption("Configure Local RAG settings and integrations")
 
-    st.subheader("Ollama Configuration")
-    ollama_settings = st.container(border=True)
-    with ollama_settings:
-        # Ollama endpoint configuration
-        endpoint = st.text_input(
-            "Ollama Endpoint",
-            value=st.session_state.get("ollama_endpoint", "http://127.0.0.1:11434"),
-            key="ollama_endpoint",
-            help="The URL where your Ollama server is running"
-        )
-        
-        col1, col2 = st.columns([4, 1])
-        with col1:
-            # Model selection
-            available_models = st.session_state.get("ollama_models", [])
-            if available_models:
-                st.selectbox(
-                    "Model",
-                    options=available_models,
-                    key="selected_model",
-                    help="Select which Ollama model to use"
-                )
-            else:
-                st.warning("⚠️ No models found. Make sure Ollama is running and click 'Refresh Models'")
-        
-        with col2:
-            # Refresh button
-            if st.button("Refresh Models", use_container_width=True):
-                with st.spinner("Fetching models..."):
-                    models = ollama.get_models()
-                    if models:
-                        st.success(f"Found {len(models)} models")
-                        st.rerun()
-                    else:
-                        st.error("Could not connect to Ollama")
-
-    st.subheader("Chat Settings")
+    st.subheader("Chat")
     chat_settings = st.container(border=True)
     with chat_settings:
+        st.text_input(
+            "Ollama Endpoint",
+            key="ollama_endpoint",
+            placeholder="http://localhost:11434",
+            on_change=ollama.get_models,
+        )
+        st.selectbox(
+            "Model",
+            st.session_state["ollama_models"],
+            key="selected_model",
+            disabled= len(st.session_state["ollama_models"])==0,
+            placeholder= "Select Model" if len(st.session_state["ollama_models"])>0 else "No Models Available",
+        )
+        st.button(
+            "Refresh",
+            on_click=ollama.get_models,
+        )
         if st.session_state["advanced"] == True:
             st.select_slider(
                 "Top K",
@@ -58,6 +39,11 @@ def settings():
                 value=st.session_state["top_k"],
                 key="top_k",
             )
+            # st.text_area(
+            #     "System Prompt",
+            #     value=st.session_state["system_prompt"],
+            #     key="system_prompt",
+            # )
             st.selectbox(
                 "Chat Mode",
                 (
@@ -70,7 +56,9 @@ def settings():
                 ),
                 help="Sets the [Llama Index Query Engine chat mode](https://github.com/run-llama/llama_index/blob/main/docs/module_guides/deploying/query_engine/response_modes.md) used when creating the Query Engine. Default: `compact`.",
                 key="chat_mode",
+                disabled=True,
             )
+            st.write("")
 
     st.subheader(
         "Embeddings",

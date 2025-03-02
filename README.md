@@ -2,6 +2,7 @@
 
 ## Overview
 A local Retrieval-Augmented Generation (RAG) system specialized for mathematical question answering, featuring LaTeX support, symbolic mathematics processing, and advanced document handling capabilities.
+
 ![rag_main_latex_fprd](https://github.com/user-attachments/assets/d0296645-63fc-4164-92c2-82cc14266793)
 
 
@@ -13,6 +14,7 @@ A local Retrieval-Augmented Generation (RAG) system specialized for mathematical
 - **Step-by-Step Solutions**: Detailed mathematical problem solving
 
 ### 2. User Interface
+
 <img width="1680" alt="Screenshot 2025-02-27 at 11 30 06 PM" src="https://github.com/user-attachments/assets/137d92ad-1641-4302-b1f7-94adec51f8ce" />
 
 - **LaTeX Rendering**: Beautiful display of mathematical formulas in both queries and responses
@@ -38,7 +40,7 @@ A local Retrieval-Augmented Generation (RAG) system specialized for mathematical
 ## Quick Installation
 ```bash
 # Clone repository
-git clone [https://github.com/yourusername/math-enhanced-rag](https://github.com/ShrutikaSingh/rag_latex_ford)
+git clone https://github.com/ShrutikaSingh/rag_latex_ford
 cd rag_latex_ford
 
 # Create virtual environment

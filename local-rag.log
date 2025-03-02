@@ -1,0 +1,169 @@
+2025-03-01 16:49:41,553 - math_processor - INFO - Math processor initialized
+2025-03-01 16:49:41,553 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 16:49:41,568 - math_processor - INFO - Math processor initialized
+2025-03-01 16:49:41,568 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 16:49:43,821 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 16:49:44,043 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 16:49:44,043 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 16:49:44,747 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 16:49:44,767 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 16:49:44,767 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 16:49:52,157 - math_processor - INFO - Math processor initialized
+2025-03-01 16:49:52,157 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 16:49:54,146 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 16:49:54,166 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 16:49:54,166 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 16:50:03,101 - math_processor - INFO - Math processor initialized
+2025-03-01 16:50:03,101 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 16:50:04,882 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 16:50:04,902 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 16:50:04,902 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 16:50:05,878 - rag_pipeline - INFO - Index created and persisted successfully
+2025-03-01 16:50:05,878 - rag_pipeline - INFO - Vector indexes created for uploaded documents.
+2025-03-01 16:50:23,838 - math_processor - INFO - Math processor initialized
+2025-03-01 16:50:23,838 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 16:50:29,445 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 16:50:29,454 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 16:50:29,455 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 16:50:29,457 - rag_pipeline - ERROR - Query failed: 'HuggingFaceEmbedding' object has no attribute 'encode'
+2025-03-01 16:50:33,461 - rag_pipeline - ERROR - Query failed: 'HuggingFaceEmbedding' object has no attribute 'encode'
+2025-03-01 16:50:37,468 - rag_pipeline - ERROR - Query failed: 'HuggingFaceEmbedding' object has no attribute 'encode'
+2025-03-01 17:04:20,934 - math_processor - INFO - Math processor initialized
+2025-03-01 17:04:20,935 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:04:20,973 - math_processor - INFO - Math processor initialized
+2025-03-01 17:04:20,974 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:04:23,492 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:04:23,492 - rag_pipeline - WARNING - Could not load existing index: [Errno 2] No such file or directory: '/Users/206819985/Documents/main_rag/git_rag/local-rag/indexes/docstore.json'
+2025-03-01 17:04:23,492 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:04:29,447 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:04:29,448 - rag_pipeline - WARNING - Could not load existing index: [Errno 2] No such file or directory: '/Users/206819985/Documents/main_rag/git_rag/local-rag/indexes/docstore.json'
+2025-03-01 17:04:29,448 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:04:36,430 - math_processor - INFO - Math processor initialized
+2025-03-01 17:04:36,431 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:04:38,784 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:04:38,785 - rag_pipeline - WARNING - Could not load existing index: [Errno 2] No such file or directory: '/Users/206819985/Documents/main_rag/git_rag/local-rag/indexes/docstore.json'
+2025-03-01 17:04:38,785 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:04:41,604 - math_processor - INFO - Math processor initialized
+2025-03-01 17:04:41,604 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:04:43,392 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:04:43,392 - rag_pipeline - WARNING - Could not load existing index: [Errno 2] No such file or directory: '/Users/206819985/Documents/main_rag/git_rag/local-rag/indexes/docstore.json'
+2025-03-01 17:04:43,392 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:04:44,763 - rag_pipeline - INFO - Index created and persisted successfully in indexes
+2025-03-01 17:05:03,500 - math_processor - INFO - Math processor initialized
+2025-03-01 17:05:03,500 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:05:05,403 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:05:05,411 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:05:05,412 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:06:22,712 - math_processor - INFO - Math processor initialized
+2025-03-01 17:06:22,713 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:06:24,563 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:06:24,572 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:06:24,572 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:07:56,627 - math_processor - INFO - Math processor initialized
+2025-03-01 17:07:56,628 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:08:03,278 - math_processor - INFO - Math processor initialized
+2025-03-01 17:08:03,278 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:08:04,858 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:08:04,868 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:08:04,869 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:08:05,624 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:08:05,632 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:08:05,632 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:08:19,156 - math_processor - INFO - Math processor initialized
+2025-03-01 17:08:19,156 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:08:20,881 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:08:20,890 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:08:20,890 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:08:22,779 - rag_pipeline - INFO - Index created and persisted successfully in indexes
+2025-03-01 17:08:34,011 - math_processor - INFO - Math processor initialized
+2025-03-01 17:08:34,011 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:08:35,893 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:08:35,916 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:08:35,916 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:09:36,008 - rag_pipeline - ERROR - Query timed out: timed out
+2025-03-01 17:09:51,731 - math_processor - INFO - Math processor initialized
+2025-03-01 17:09:51,733 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:09:51,734 - math_processor - INFO - Math processor initialized
+2025-03-01 17:09:51,735 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:09:51,736 - math_processor - INFO - Math processor initialized
+2025-03-01 17:09:51,740 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:09:51,766 - math_processor - INFO - Math processor initialized
+2025-03-01 17:09:51,767 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:09:59,274 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:09:59,275 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:09:59,275 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:09:59,276 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:09:59,564 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:09:59,564 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:09:59,564 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:09:59,564 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:09:59,564 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:09:59,565 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:09:59,565 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:09:59,565 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:10:18,063 - math_processor - INFO - Math processor initialized
+2025-03-01 17:10:18,064 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:10:24,076 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:10:24,098 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:10:24,098 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:10:55,174 - math_processor - INFO - Math processor initialized
+2025-03-01 17:10:55,175 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:11:01,746 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:11:01,766 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:11:01,766 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:12:02,601 - rag_pipeline - ERROR - Query timed out: timed out
+2025-03-01 17:14:13,814 - math_processor - INFO - Math processor initialized
+2025-03-01 17:14:13,815 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:14:13,837 - math_processor - INFO - Math processor initialized
+2025-03-01 17:14:13,837 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:14:19,363 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:14:19,365 - rag_pipeline - WARNING - Could not load existing index: [Errno 2] No such file or directory: '/Users/206819985/Documents/main_rag/git_rag/local-rag/indexes/docstore.json'
+2025-03-01 17:14:19,365 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:14:20,356 - math_processor - INFO - Math processor initialized
+2025-03-01 17:14:20,357 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:14:23,571 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:14:23,572 - rag_pipeline - WARNING - Could not load existing index: [Errno 2] No such file or directory: '/Users/206819985/Documents/main_rag/git_rag/local-rag/indexes/docstore.json'
+2025-03-01 17:14:23,572 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:14:31,922 - math_processor - INFO - Math processor initialized
+2025-03-01 17:14:31,922 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:14:34,114 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:14:34,114 - rag_pipeline - WARNING - Could not load existing index: [Errno 2] No such file or directory: '/Users/206819985/Documents/main_rag/git_rag/local-rag/indexes/docstore.json'
+2025-03-01 17:14:34,114 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:14:41,762 - math_processor - INFO - Math processor initialized
+2025-03-01 17:14:41,763 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:14:43,516 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:14:43,517 - rag_pipeline - WARNING - Could not load existing index: [Errno 2] No such file or directory: '/Users/206819985/Documents/main_rag/git_rag/local-rag/indexes/docstore.json'
+2025-03-01 17:14:43,517 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:15:00,687 - math_processor - INFO - Math processor initialized
+2025-03-01 17:15:00,687 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:15:02,450 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:15:02,450 - rag_pipeline - WARNING - Could not load existing index: [Errno 2] No such file or directory: '/Users/206819985/Documents/main_rag/git_rag/local-rag/indexes/docstore.json'
+2025-03-01 17:15:02,450 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:15:03,754 - rag_pipeline - INFO - Index created and persisted successfully in indexes
+2025-03-01 17:15:18,008 - math_processor - INFO - Math processor initialized
+2025-03-01 17:15:18,009 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:15:20,094 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:15:20,105 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:15:20,105 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:16:20,288 - rag_pipeline - ERROR - Query timed out: timed out
+2025-03-01 17:17:32,816 - math_processor - INFO - Math processor initialized
+2025-03-01 17:17:32,818 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:17:39,521 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:17:39,530 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:17:39,531 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:18:16,417 - math_processor - INFO - Math processor initialized
+2025-03-01 17:18:16,417 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:18:19,034 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:18:19,043 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:18:19,044 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:18:41,507 - math_processor - INFO - Math processor initialized
+2025-03-01 17:18:41,508 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:18:44,255 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:18:44,264 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:18:44,264 - rag_pipeline - INFO - RAG pipeline initialized
+2025-03-01 17:18:44,991 - rag_pipeline - INFO - Index created and persisted successfully in indexes
+2025-03-01 17:18:57,625 - math_processor - INFO - Math processor initialized
+2025-03-01 17:18:57,625 - symbolic_processor - INFO - Symbolic processor initialized
+2025-03-01 17:18:59,496 - rag_pipeline - INFO - Models initialized successfully
+2025-03-01 17:18:59,504 - rag_pipeline - INFO - Loaded existing index
+2025-03-01 17:18:59,504 - rag_pipeline - INFO - RAG pipeline initialized

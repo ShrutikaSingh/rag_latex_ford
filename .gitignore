@@ -1,6 +1,6 @@
 *.pyc
 data/*
-*.log
+# *.log
 .cache/*
 .nv/*
 .DS_Store
@@ -8,7 +8,7 @@ myenv/
 
 models/
 test_files/
-uploads/
-data/
+indexes/
+pdfs/
 
 old/

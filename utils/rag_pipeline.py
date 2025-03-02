@@ -32,7 +32,7 @@ class RagPipeline:
         self.index = None
         self.llm = None
         self.embedding_model = None
-        self.storage_dir = "data/index_storage"
+        self.storage_dir = "indexes"
         print("Initializing RAG Pipeline...")
         with tqdm(total=3, desc="Setup Progress") as pbar:
             self.setup_models()
@@ -165,8 +165,9 @@ class RagPipeline:
       
        for file in files:
            try:
-               # Create uploads directory if it doesn't exist
+               # Create necessary directories
                os.makedirs("uploads", exist_ok=True)
+               os.makedirs("pdfs", exist_ok=True)
               
                temp_path = Path("uploads") / file.name
                with open(temp_path, "wb") as f:
@@ -174,10 +175,20 @@ class RagPipeline:
               
                # Process PDF
                if file.name.lower().endswith('.pdf'):
+                   # Store a copy in the pdfs folder if it doesn't exist already
+                   pdf_path = Path("pdfs") / file.name
+                   if not pdf_path.exists():
+                       with open(pdf_path, "wb") as f:
+                           # Reset file pointer first
+                           file.seek(0)
+                           f.write(file.read())
+                           logs.log.info(f"Saved PDF {file.name} to pdfs directory")
+                   
                    docs = self.process_pdf(str(temp_path))
                    for doc in docs:
-                       # Ensure metadata is JSON serializable
+                       # Ensure metadata is JSON serializable and add original file path
                        doc.metadata = self._ensure_json_serializable(doc.metadata)
+                       doc.metadata['file_path'] = str(pdf_path)
                    documents.extend(docs)
                else:
                    # Handle other file types
@@ -194,7 +205,9 @@ class RagPipeline:
                    )
                    documents.append(doc)
               
-               os.remove(temp_path)
+               # Clean up the temporary file
+               if os.path.exists(temp_path):
+                   os.remove(temp_path)
               
            except Exception as e:
                logs.log.error(f"Error processing file {file.name}: {e}")
@@ -212,6 +225,7 @@ class RagPipeline:
                embed_model=self.embedding_model
            )
           
+           # Ensure the indexes directory exists
            os.makedirs(self.storage_dir, exist_ok=True)
           
            self.index = VectorStoreIndex.from_documents(
@@ -221,7 +235,7 @@ class RagPipeline:
           
            self.index.storage_context.persist(persist_dir=self.storage_dir)
           
-           logs.log.info("Index created and persisted successfully")
+           logs.log.info(f"Index created and persisted successfully in {self.storage_dir}")
        except Exception as e:
            logs.log.error(f"Index creation failed: {e}")
            raise

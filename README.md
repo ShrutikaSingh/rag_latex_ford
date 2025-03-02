@@ -3,6 +3,7 @@
 ## Overview
 A local Retrieval-Augmented Generation (RAG) system specialized for mathematical question answering, featuring LaTeX support, symbolic mathematics processing, and advanced document handling capabilities.
 
+![rag_latex](https://github.com/user-attachments/assets/a295f6b4-2587-40df-92ef-df30b03671e7)
 
 ## Core Features I implemented
 
